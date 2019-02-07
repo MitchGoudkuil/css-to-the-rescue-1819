@@ -1,3 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 318.58 51.56">
-  <path d="M0 51.56S-1.8.7 46.91.7c23.83 0 33.16 10.74 48.71 9.2s25.91-9.2 57-9.2 29 13.8 54.92 9.2S237.6-2.36 270.76.7s48 9 47.82 50.86z" fill="#c63142"/>
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 22.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 318.6 51.6" style="enable-background:new 0 0 318.6 51.6;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#C63142;}
+	.st1{opacity:0.35;fill:#FFFFFF;}
+</style>
+<g id="Laag_1">
+	<path class="st0" d="M0,51.6c0,0-1.8-50.9,46.9-50.9c23.8,0,33.2,10.7,48.7,9.2s25.9-9.2,57-9.2s29,13.8,54.9,9.2
+		s30.1-12.3,63.2-9.2s48,9,47.8,50.9H0z"/>
+</g>
+<g id="Laag_2">
+	<path class="st1" d="M19.8,13.8c0,0,10-11.1,30.7-10.1C50.4,3.7,25.3,8.6,19.8,13.8z"/>
+	<path class="st1" d="M133.3,5.5c0,0,26.8-7,46.7,3.3C180,8.7,164.3,5.8,133.3,5.5z"/>
+	<path class="st1" d="M275.8,3.7c0,0,35.9,0.8,37.6,29.3C313.4,33,300.2,11.3,275.8,3.7z"/>
+</g>
 </svg>
