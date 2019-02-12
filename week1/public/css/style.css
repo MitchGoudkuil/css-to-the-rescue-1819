@@ -1,9 +1,11 @@
 * {
   margin: 0;
+  box-sizing: border-box;
 }
 
-html {
-
+:root {
+  --curryRed: #C63142;
+  --curryYellow: #E2C188;
 }
 
 body {
@@ -17,7 +19,148 @@ body {
 main {
   width: 100%;
   height: 100%;
+}
 
+input[type='radio']{
+  opacity: 0;
+}
+
+hr {
+  background-color: #84643A;
+  border: 1px solid #84643A;
+}
+
+
+/* start fries container*/
+
+.fry-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+}
+
+.fry-container__splash {
+  position: relative;
+}
+
+.fry-container-item__drink {
+  position: absolute;
+  right: 2em;
+  bottom: -7em;
+  max-width: 130px;
+  width: 100%;
+}
+
+#vuur {
+  transition: .4s;
+}
+
+#vuur-andcup {
+  transition: .4s;
+}
+
+#blob:hover ~ #vuur-andcup {
+  transform: translate(10%, -300%);
+  transition-delay: .4s;
+}
+
+#blob:hover ~ #vuur-andcup > #vuur {
+  transform: translateY(7em);
+}
+
+
+.article-wood {
+  text-align: left;
+  max-width: 50vw;
+  width: 100%;
+  position: absolute;
+  bottom: -10vh;
+  left: 50%;
+  margin-left: -25vw;
+  transform-origin: center;
+  background-color: var(--curryYellow);
+
+  transition: .2s;
+  padding: 2em;
+  display: flex;
+  color: #fff
+}
+
+.article-wood::before {
+  position: absolute;
+  top: 0;
+  left: -59px;
+  background-image: url(../../img/fry-side.svg);
+  background-size: cover;
+  content: "";
+  height: 100%;
+  width: 60px;
+  z-index: -1;
+}
+
+.article-wood::after {
+  position: absolute;
+  top: 0;
+  right: -59px;
+  transform:scaleX(-1);
+  background-image: url(../../img/fry-side.svg);
+  background-size: cover;
+  content: "";
+  height: 100%;
+  width: 60px;
+  z-index: -1;
+}
+
+.half {
+  width: 50%;
+}
+
+.recipe {
+  margin-bottom: .5em;
+}
+
+.recipe-price {
+  padding: 10px 20px;
+  margin-top: 5px;
+  display: inline-block;
+  border-radius: 8px;
+}
+
+#fry:checked ~ .fry-container {
+  opacity: 1;
+  transition-delay: .4s;
+}
+
+/*----------Start drink container---------*/
+
+.drink-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.drink-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+}
+
+.drink-container__splash {
+  position: relative;
+}
+
+#drink:checked ~ .drink-container {
+  opacity: 1;
+  transition-delay: .4s;
 }
 
 .middle-container {
@@ -29,110 +172,138 @@ main {
   justify-content: center;
 }
 
-.middle-container-block--logo {
-  width: 500px;
-  transition-timing-function: ease-in-out;
-  transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
-  animation: updown .4s linear 2s infinite alternate;
+.middle-container-block__logo {
+  position: relative;
+  z-index: 10;
+  max-width: 400px;
+  width: 100%;
+  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation: updown 2.5s infinite alternate;
 }
 
-
-
-header {
+.header {
   position: absolute;
   bottom: 0;
   width: 100%;
   z-index: 1000;
-}
-
-.header {
-  position:relative;
-  width: 100%;
   text-align: center;
 }
 
 .header-navigation {
   display: block;
   margin: 0 auto;
-  max-width: 500px;
   width: 100%;
   transition-timing-function: ease-in-out;
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   animation: updown 2s linear 2s infinite alternate;
 }
 
-.header-navigation-item--background {
+.header-navigation-item__background {
+  max-width: 500px;
+  width: 100%;
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  margin-left: -250px;
   z-index: 10;
 }
 
-.header-navigation-item--drink {
-  width: 70px;
+
+.header-navigation-item__drink {
+  max-width: 70px;
+  width: 100%;
   margin-bottom: 15px;
   display: inline-block;
   transform: rotate(10deg);
   transition: .5s
 }
 
-.header-navigation-item--bowl {
-  width: 180px;
+.header-navigation-item__bowl {
+  max-width: 180px;
+  width: 100%;
   margin-bottom: 15px;
   display: inline-block;
   transition: .5s
 }
 
-.header-navigation-item--fries,
-.header-navigation-item--steak {
-  width: 100px;
+.header-navigation-item__steak {
+  max-width: 80px;
+  width: 100%;
   margin-bottom: 25px;
   display: inline-block;
   transition: .5s
 }
 
-.fry, .straw {
+.header-navigation-item__fries{
+  max-width: 100px;
+  width: 100%;
+  margin-bottom: 25px;
+  display: inline-block;
+  transition: .5s;
+}
+
+.fry, .straw, .bite {
   transition: .4s;
 }
 
-.header-navigation-item--fries:hover .fry{
+.header-navigation-item__fries:hover .fry {
   transform: translateY(-25%);
 }
 
-.fry-background {
-  position: relative;
-  z-index: 1;
+.background-containers {
+  position: absolute;
+  top: 0;
+  z-index: 2;
   width: 100%;
   height: 100%;
-  background-image: url(../../img/fry-back.svg);
-  background-color: green;
   background-size: 400px;
-  animation: backgroundchange 2s linear 2s infinite alternate;
-  clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);
-
+  transition: .4s;
 }
 
-.header-navigation-item--fries:hover .fry-background{
-
+.background-containers__fry {
+  background-image: url(../../img/fry-back.svg);
 }
 
-.header-navigation-item--drink:hover .straw {
+.background-containers__drink {
+  background-image: url(../../img/drink-back.svg);
+}
+
+.background-containers__steak {
+  background-image: url(../../img/steak-back.svg);
+}
+
+.nowidth {
+  width: 0%;
+}
+
+.header-navigation-item__drink:hover .straw {
   transform: translateY(-50px);
 }
 
-.header-navigation-item--steak:hover,
-.header-navigation-item--fries:hover {
+.header-navigation-item__steak:hover,
+.header-navigation-item__fries:hover {
   transform: translateY(-30px);
 }
 
-.header-navigation-item--drink:hover {
+#bite {
+  opacity: 1;
+  transition: .6s;
+}
+
+.header-navigation-item__steak:hover #bite {
+  transform: translate(10%, -10%);
+  transition: .4s;
+  opacity: 0;
+}
+
+.header-navigation-item__drink:hover {
   transform: translateY(-20px);
 }
 
-.header-navigation-item--bowl:hover {
+.header-navigation-item__bowl:hover {
   transform: translateY(-20px);
 }
-
 
 @keyframes backgroundchange {
   0% { clip-path: polygon(0% 0%, 0% 0%, 0% 100%, 0% 100%);}
@@ -140,14 +311,26 @@ header {
 }
 
 @keyframes updown {
-  50% { transform: translateY(3px);}
+  50% { transform: translateY(0px);}
   100% {transform: translateY(3px);}
 }
 
+/* @keyframes rotate {
+  0% {transform: rotate(0deg);}
+  50% {transform: rotate(360deg);}
+  100% {transform: rotate(0deg);}
+} */
 
-/*fries styling*/
-
+/* fries styling */
 .cls-1{fill:#fbd013}
 .cls-2{fill:#e8b401}
 .cls-3{fill:#e60f22}
 .cls-5{fill:#af1019}
+
+.vlees{fill:#aa271f}
+
+.bubble1{fill:#fff;
+  opacity:.35;
+  isolation:isolate}
+.bubble{fill:#e2e2e2}
+.blob{fill:#efefef}
