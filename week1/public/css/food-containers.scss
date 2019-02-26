@@ -1,0 +1,274 @@
+/*------- start fries container -------*/
+
+#fry:checked ~ .fry-container {
+  opacity: 1;
+  transition-delay: .4s;
+  z-index: 20;
+}
+
+.fry-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+
+  &__splash {
+    position: relative;
+  }
+
+}
+
+.fry-list {
+  font-family: 'Handlee', cursive;
+  position: relative;
+  list-style: none;
+  padding-left: 0;
+  background-color: #fff;
+  margin-right: 1em;
+  color: #000;
+  padding: 1em;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.52);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.52);
+  box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.52);
+
+  &__rip {
+    margin-top: .5em;
+  }
+
+  &__fries-one {
+    -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition:         all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &:hover {
+      transform: translateY(3em) rotate(3deg);
+    }
+  }
+
+  &__fries-two {
+    -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition:         all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &:hover {
+      transform: translateY(3em) rotate(3deg);
+    }
+  }
+
+  &__item {
+    transition: .3s;
+    margin-bottom: 2em;
+  }
+
+  &::before {
+    position: absolute;
+    top: -1em;
+    left: 0;
+    height: 2em;
+    width: 100%;
+    background-image: url(../../img/paper-top.svg);
+    background-size: 100%;
+    content: ""
+  }
+}
+
+
+
+#rope-pull:checked ~ .curtain-container .curtain-left {
+   transform: translateY(-100%);
+}
+
+.rope {
+  position: absolute;
+  width: 30px;
+  top: 0;
+  right: .1em;
+  transition: .3s;
+  cursor: pointer;
+
+  &:active {
+    transform: translateY(3%)
+  }
+}
+
+
+
+/*---------- Start drink container ---------*/
+
+#drink:checked ~ .drink-container {
+  opacity: 1;
+  transition-delay: .4s;
+  z-index: 2;
+}
+
+
+.drink-list {
+  font-family: 'Handlee', cursive;
+  position: relative;
+  list-style: none;
+  padding-left: 0;
+  background-color: #fff;
+  margin-right: 1em;
+  color: #000;
+  padding: 1em;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.52);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.52);
+  box-shadow: 0px 10px 5px 0px rgba(0,0,0,0.52);
+
+  &__fresh {
+    -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition:         all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &:hover {
+          transform: translateY(3em) rotate(-3deg);
+    }
+
+    &:focus {
+      transform: translateY(3em);
+      li{
+        border: 1px solid black;
+        border-style: dashed;
+        padding: .1em;
+        margin-bottom: .5em;
+      }
+    }
+  }
+
+  &__rip {
+    margin-top: .5em;
+  }
+
+  &__beer {
+    -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition:         all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    &:hover {
+      transform: translateY(3em) rotate(3deg);
+    }
+
+    &:focus {
+      transform: translateY(3em);
+      li {
+        border: 1px solid black;
+        border-style: dashed;
+        padding: .1em;
+        margin-bottom: .5em;
+      }
+
+    }
+  }
+
+  &__item {
+    transition: .3s;
+  }
+
+  &::before {
+    position: absolute;
+    top: -1em;
+    left: 0;
+    height: 2em;
+    width: 100%;
+    background-image: url(../../img/paper-top.svg);
+    background-size: 100%;
+    content: ""
+  }
+}
+
+.drink-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+
+  &__splash {
+    position: relative;
+  }
+
+  &-item__drink {
+    position: absolute;
+    right: 2em;
+    bottom: -7em;
+    max-width: 130px;
+    width: 100%;
+  }
+}
+
+/*-------start steak container-------*/
+
+
+#steakitem:checked ~ .steak-container {
+  opacity: 1;
+  transition-delay: .4s;
+}
+
+.steak-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+
+  &__splash {
+    position: relative;
+  }
+}
+
+
+
+/*--------start salad container-------*/
+
+
+#saladitem:checked ~ .salad-container {
+  opacity: 1;
+  transition-delay: .4s;
+}
+
+.salad-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+
+  &__splash {
+    position: relative;
+  }
+}
+
+
+/*------curtains-------*/
+
+.curtain-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.curtains {
+  position: absolute;
+  top: .3em;
+  width: 100%;
+  padding: 0 0 20px 0;
+}
+
+.curtain {
+  width: 100%;
+  transition: .7s;
+}

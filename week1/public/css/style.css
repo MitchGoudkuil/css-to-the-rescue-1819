@@ -1,11 +1,51 @@
-* {
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
   margin: 0;
-  box-sizing: border-box;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-:root {
-  --curryRed: #C63142;
-  --chalk: #2B2B2B;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 p {
@@ -15,6 +55,118 @@ p {
 h1 {
   font-weight: 2em;
   font-weight: 300;
+}
+
+/* Middle part with logo */
+.middle-container {
+  z-index: 10;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.middle-container__block-logo {
+  position: relative;
+  z-index: 10;
+  max-width: 400px;
+  width: 100%;
+  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  animation: updown 2.5s infinite alternate;
+}
+
+/* backgrounds */
+.background-containers {
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background-size: 400px;
+  transition: .4s;
+}
+.background-containers__fry {
+  background-image: url(../../img/fry-back.svg);
+}
+.background-containers__drink {
+  background-image: url(../../img/drink-back.svg);
+  animation: backUp .2s infinite alternate;
+}
+.background-containers__salad {
+  background-image: url(../../img/background-salad.svg);
+  animation: breathe 2s infinite alternate;
+}
+.background-containers__steak {
+  background-image: url(../../img/steak-back.svg);
+}
+
+.raining-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.raining-container__single {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.raining-container__single--fryone {
+  background-image: url(../../img/friet-1.png);
+  background-size: cover;
+  animation: falling 6s linear infinite;
+}
+.raining-container__single--frytwo {
+  background-image: url(../../img/friet-2.png);
+  background-size: cover;
+  animation: falling 4s linear infinite;
+}
+.raining-container__single--frythree {
+  background-image: url(../../img/friet-3.png);
+  background-size: cover;
+  animation: falling 2.5s linear infinite;
+}
+
+.wind-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.wind-container__single {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+.wind-container__single--meatone {
+  background-image: url(../../img/meat-wind-1.png);
+  background-size: contain;
+  animation: wind 2s linear infinite;
+}
+.wind-container__single--meattwo {
+  background-image: url(../../img/meat-wind-2.png);
+  background-size: contain;
+  animation: wind 1s linear infinite;
+}
+.wind-container__single--meatthree {
+  background-image: url(../../img/meat-wind-3.png);
+  background-size: contain;
+  animation: wind .7s linear infinite;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --curryRed: #C63142;
+  --chalk: #2B2B2B;
 }
 
 body {
@@ -30,8 +182,12 @@ main {
   height: 100%;
 }
 
-input[type='radio']{
+input[type='radio'] {
   opacity: 0;
+}
+
+input[type='checkbox'] {
+  display: none;
 }
 
 hr {
@@ -46,56 +202,53 @@ hr {
   width: 80%;
   transition: .2s;
 }
-
 hr:hover {
   transform: scale(1.1);
 }
 
-/* start fries container*/
-
-.fry-container {
-  position: absolute;
-  width: 70vw;
-  left: 50%;
-  margin-left: -35vw;
-  top: -100%;
-  z-index: -1;
-  opacity: 0;
-  transition: .4s;
+/* all keyframe animations */
+@keyframes updown {
+  50% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(3px);
+  }
 }
-
-.fry-container__splash {
-  position: relative;
+@keyframes falling {
+  0% {
+    transform: translate3d(0, -100%, 0);
+  }
+  100% {
+    transform: translate3d(15%, 100%, 0);
+  }
 }
-
-.fry-container-item__drink {
-  position: absolute;
-  right: 2em;
-  bottom: -7em;
-  max-width: 130px;
-  width: 100%;
+@keyframes wind {
+  0% {
+    transform: translate3d(-100%, 0, 0);
+  }
+  100% {
+    transform: translate3d(100%, 0%, 0);
+  }
 }
-
-#vuur {
-  transition: .4s;
+@keyframes backUp {
+  0% {
+    transform: translateY(3px);
+  }
 }
-
-#vuur-andcup {
-  transition: .4s;
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.01);
+  }
 }
-
-#blob:hover ~ #vuur-andcup {
-  transform: translate(10%, -300%);
-  -webkit-perspective: 100px; /* Safari 4-8  */
-  perspective: 100px;
-  transition-delay: .4s;
+@keyframes curtainOpenClose {
+  100% {
+    width: 0;
+  }
 }
-
-#blob:hover ~ #vuur-andcup > #vuur {
-  transform: translateY(7em);
-}
-
-
 .article-wood {
   text-align: left;
   max-width: 50vw;
@@ -106,18 +259,33 @@ hr:hover {
   margin-left: -25vw;
   transform-origin: center;
   background-color: var(--chalk);
-
   transition: .2s;
-  padding: 4em;
+  padding: 2em 4em 4em;
   display: flex;
-  color: #fff
+  color: #fff;
 }
-
+.article-wood__half {
+  width: 50%;
+  padding: 1em;
+  font-family: 'Handlee', cursive;
+}
+.article-wood__half h1 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2em;
+  font-weight: 300;
+}
+.article-wood__salad {
+  position: absolute;
+  right: -6em;
+  bottom: -3em;
+  max-width: 200px;
+  width: 100%;
+}
 .article-wood:hover {
-  -webkit-perspective: 100px; /* Safari 4-8  */
+  -webkit-perspective: 100px;
+  /* Safari 4-8  */
   perspective: 100px;
 }
-
 .article-wood::before {
   position: absolute;
   top: 0;
@@ -129,12 +297,11 @@ hr:hover {
   width: 60px;
   z-index: -1;
 }
-
 .article-wood::after {
   position: absolute;
   top: 0;
   right: -59px;
-  transform:scaleX(-1);
+  transform: scaleX(-1);
   background-image: url(../../img/fry-side.svg);
   background-size: cover;
   content: "";
@@ -143,51 +310,231 @@ hr:hover {
   z-index: -1;
 }
 
-.half {
-  width: 50%;
-  font-family: 'Handlee', cursive;
-}
-
-.half ul {
-font-family: 'Handlee', cursive;
-}
-
-.half > ul > li {
-transition: .3s;
-}
-
-.half > ul > li:hover {
-
-  transform: scaleY(1.9);
-  transform-origin: right;
-}
-
-.half h1{
-  font-family: 'Fredericka the Great', cursive;
-  font-size: 2em;
-  font-weight: 300;
-}
-
 .recipe {
   margin-bottom: .5em;
 }
 
 .recipe-price {
   margin-top: 5px;
-  display: inline-block;
+  display: block;
   border-radius: 8px;
 }
 
+.article-wood-fries {
+  text-align: left;
+  max-width: 50vw;
+  width: 100%;
+  position: absolute;
+  bottom: -10vh;
+  left: 50%;
+  margin-left: -25vw;
+  transform-origin: center;
+  background-color: var(--chalk);
+  transition: .2s;
+  padding: 4em;
+  display: flex;
+  color: #fff;
+}
+.article-wood-fries__half {
+  width: 50%;
+  padding: 1em;
+  font-family: 'Handlee', cursive;
+}
+.article-wood-fries__half:nth-of-type(2) {
+  margin-top: 32px;
+}
+.article-wood-fries__half h1 {
+  font-family: 'Fredericka the Great', cursive;
+  font-size: 2em;
+  font-weight: 300;
+}
+.article-wood-fries__salad {
+  position: absolute;
+  right: -6em;
+  bottom: -3em;
+  max-width: 200px;
+  width: 100%;
+}
+.article-wood-fries:hover {
+  -webkit-perspective: 100px;
+  /* Safari 4-8  */
+  perspective: 100px;
+}
+.article-wood-fries::before {
+  position: absolute;
+  top: 0;
+  left: -59px;
+  background-image: url(../../img/fry-side.svg);
+  background-size: cover;
+  content: "";
+  height: 100%;
+  width: 60px;
+  z-index: -1;
+}
+.article-wood-fries::after {
+  position: absolute;
+  top: 0;
+  right: -59px;
+  transform: scaleX(-1);
+  background-image: url(../../img/fry-side.svg);
+  background-size: cover;
+  content: "";
+  height: 100%;
+  width: 60px;
+  z-index: -1;
+}
+
+/*------- start fries container -------*/
 #fry:checked ~ .fry-container {
   opacity: 1;
   transition-delay: .4s;
+  z-index: 20;
 }
 
-/*----------Start drink container---------*/
+.fry-container {
+  position: absolute;
+  width: 70vw;
+  left: 50%;
+  margin-left: -35vw;
+  top: -100%;
+  z-index: -1;
+  opacity: 0;
+  transition: .4s;
+}
+.fry-container__splash {
+  position: relative;
+}
 
-.drink-list {
+.fry-list {
+  font-family: 'Handlee', cursive;
+  position: relative;
   list-style: none;
   padding-left: 0;
+  background-color: #fff;
+  margin-right: 1em;
+  color: #000;
+  padding: 1em;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.52);
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.52);
+}
+.fry-list__rip {
+  margin-top: .5em;
+}
+.fry-list__fries-one {
+  -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fry-list__fries-one:hover {
+  transform: translateY(3em) rotate(3deg);
+}
+.fry-list__fries-two {
+  -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.fry-list__fries-two:hover {
+  transform: translateY(3em) rotate(3deg);
+}
+.fry-list__item {
+  transition: .3s;
+  margin-bottom: 2em;
+}
+.fry-list::before {
+  position: absolute;
+  top: -1em;
+  left: 0;
+  height: 2em;
+  width: 100%;
+  background-image: url(../../img/paper-top.svg);
+  background-size: 100%;
+  content: "";
+}
+
+#rope-pull:checked ~ .curtain-container .curtain-left {
+  transform: translateY(-100%);
+}
+
+.rope {
+  position: absolute;
+  width: 30px;
+  top: 0;
+  right: .1em;
+  transition: .3s;
+  cursor: pointer;
+}
+.rope:active {
+  transform: translateY(3%);
+}
+
+/*---------- Start drink container ---------*/
+#drink:checked ~ .drink-container {
+  opacity: 1;
+  transition-delay: .4s;
+  z-index: 2;
+}
+
+.drink-list {
+  font-family: 'Handlee', cursive;
+  position: relative;
+  list-style: none;
+  padding-left: 0;
+  background-color: #fff;
+  margin-right: 1em;
+  color: #000;
+  padding: 1em;
+  width: 100%;
+  -webkit-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.52);
+  -moz-box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.52);
+  box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.52);
+}
+.drink-list__fresh {
+  -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.drink-list__fresh:hover {
+  transform: translateY(3em) rotate(-3deg);
+}
+.drink-list__fresh:focus {
+  transform: translateY(3em);
+}
+.drink-list__fresh:focus li {
+  border: 1px solid black;
+  border-style: dashed;
+  padding: .1em;
+  margin-bottom: .5em;
+}
+.drink-list__rip {
+  margin-top: .5em;
+}
+.drink-list__beer {
+  -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+.drink-list__beer:hover {
+  transform: translateY(3em) rotate(3deg);
+}
+.drink-list__beer:focus {
+  transform: translateY(3em);
+}
+.drink-list__beer:focus li {
+  border: 1px solid black;
+  border-style: dashed;
+  padding: .1em;
+  margin-bottom: .5em;
+}
+.drink-list__item {
+  transition: .3s;
+}
+.drink-list::before {
+  position: absolute;
+  top: -1em;
+  left: 0;
+  height: 2em;
+  width: 100%;
+  background-image: url(../../img/paper-top.svg);
+  background-size: 100%;
+  content: "";
 }
 
 .drink-container {
@@ -200,21 +547,22 @@ transition: .3s;
   opacity: 0;
   transition: .4s;
 }
-
 .drink-container__splash {
   position: relative;
 }
+.drink-container-item__drink {
+  position: absolute;
+  right: 2em;
+  bottom: -7em;
+  max-width: 130px;
+  width: 100%;
+}
 
-#drink:checked ~ .drink-container {
+/*-------start steak container-------*/
+#steakitem:checked ~ .steak-container {
   opacity: 1;
   transition-delay: .4s;
 }
-
-
-
-
-/*-------start steak container-------*/
-
 
 .steak-container {
   position: absolute;
@@ -226,18 +574,15 @@ transition: .3s;
   opacity: 0;
   transition: .4s;
 }
-
 .steak-container__splash {
   position: relative;
 }
 
-#steakitem:checked ~ .steak-container {
+/*--------start salad container-------*/
+#saladitem:checked ~ .salad-container {
   opacity: 1;
   transition-delay: .4s;
 }
-
-
-/*--------start salad container-------*/
 
 .salad-container {
   position: absolute;
@@ -249,37 +594,33 @@ transition: .3s;
   opacity: 0;
   transition: .4s;
 }
-
 .salad-container__splash {
   position: relative;
 }
 
-#saladitem:checked ~ .salad-container {
-  opacity: 1;
-  transition-delay: .4s;
-}
-
-/* Middle part with logo */
-
-.middle-container {
-  z-index: 10;
+/*------curtains-------*/
+.curtain-container {
+  position: absolute;
+  width: 100%;
   height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  top: 0;
+  left: 0;
+  overflow: hidden;
 }
 
-.middle-container-block__logo {
-  position: relative;
-  z-index: 10;
-  max-width: 400px;
+.curtains {
+  position: absolute;
+  top: .3em;
   width: 100%;
-  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  animation: updown 2.5s infinite alternate;
+  padding: 0 0 20px 0;
 }
 
+.curtain {
+  width: 100%;
+  transition: .7s;
+}
+
+/* header navigation */
 .header {
   position: absolute;
   bottom: 0;
@@ -296,8 +637,7 @@ transition: .3s;
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
   animation: updown 2s linear 2s infinite alternate;
 }
-
-.header-navigation-item__background {
+.header-navigation--item__background {
   max-width: 500px;
   width: 100%;
   position: absolute;
@@ -306,107 +646,107 @@ transition: .3s;
   margin-left: -250px;
   z-index: 10;
 }
-
-
-.header-navigation-item__drink {
+.header-navigation--item__drink {
   max-width: 70px;
   width: 100%;
   margin-bottom: 15px;
   display: inline-block;
   transform: rotate(10deg);
-  transition: .5s
+  transition: .5s;
 }
-
-.header-navigation-item__bowl {
+.header-navigation--item__drink:hover {
+  transform: translateY(-20px);
+}
+.header-navigation--item__drink:hover .straw {
+  transform: translateY(-50px);
+}
+.header-navigation--item__bowl {
   max-width: 180px;
   width: 100%;
   margin-bottom: 20px;
   display: inline-block;
   transition: .5s;
-
 }
-
-.header-navigation-item__steak {
+.header-navigation--item__bowl:hover {
+  transform: translateY(-20px);
+}
+.header-navigation--item__bowl:hover .veg {
+  transform: translateY(-25%);
+}
+.header-navigation--item__bowl:hover .leaf {
+  transform: translateY(-40%);
+}
+.header-navigation--item__steak {
   max-width: 80px;
   width: 100%;
   margin-bottom: 25px;
   display: inline-block;
-  transition: .5s
+  transition: .5s;
 }
-
-.header-navigation-item__fries{
+.header-navigation--item__steak:hover {
+  transform: translateY(-30px);
+}
+.header-navigation--item__steak:hover #bite {
+  transform: translate(10%, -10%);
+  transition: .4s;
+  opacity: 0;
+}
+.header-navigation--item__fries {
   max-width: 100px;
   width: 100%;
   margin-bottom: 25px;
   display: inline-block;
   transition: .5s;
 }
+.header-navigation--item__fries:hover {
+  transform: translateY(-30px);
+}
+.header-navigation--item__fries:hover .fry {
+  transform: translateY(-25%);
+}
+
+#vuur {
+  transition: .4s;
+}
+
+#vuur-andcup {
+  transition: .4s;
+}
+
+#blob:hover ~ #vuur-andcup {
+  transform: translate(10%, -300%);
+  -webkit-perspective: 100px;
+  /* Safari 4-8  */
+  perspective: 100px;
+  transition-delay: .4s;
+}
+
+#blob:hover ~ #vuur-andcup > #vuur {
+  transform: translateY(7em);
+}
+
+#eggplant {
+  transition: .4s;
+}
+
+#peaches {
+  transition: .6s;
+}
+
+#bliob:hover ~ #eggplant {
+  transform: translateY(-50%);
+}
+
+#bliob:hover ~ #peaches {
+  transform: translateY(-60%);
+}
 
 .fry, .straw, .bite, .veg, .leaf {
   transition: .4s;
 }
 
-.header-navigation-item__fries:hover .fry {
-  transform: translateY(-25%);
-}
-
-.header-navigation-item__bowl:hover .veg {
-  transform: translateY(-25%);
-}
-
-.header-navigation-item__bowl:hover .leaf {
-  transform: translateY(-40%);
-}
-
-.background-containers {
-  position: absolute;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  background-size: 400px;
-  transition: .4s;
-}
-
-.background-containers__fry {
-  background-image: url(../../img/fry-back.svg);
-}
-
-.background-containers__drink {
-  background-image: url(../../img/drink-back.svg);
-}
-
-.background-containers__steak {
-  background-image: url(../../img/steak-back.svg);
-}
-
-.background-containers__salad {
-  background-image: url(../../img/background-salad.svg);
-  /* animation-delay: 1s;
-  animation: breathe 15s infinite alternate; */
-
-}
-
-@keyframes breathe {
-  0% {
-    transform: scale(1);
-  }
-  100% {
-    transform: scale(1.3);
-  }
-}
-
 .nowidth {
   width: 0%;
-}
-
-.header-navigation-item__drink:hover .straw {
-  transform: translateY(-50px);
-}
-
-.header-navigation-item__steak:hover,
-.header-navigation-item__fries:hover {
-  transform: translateY(-30px);
 }
 
 #bite {
@@ -414,60 +754,201 @@ transition: .3s;
   transition: .6s;
 }
 
-.header-navigation-item__steak:hover #bite {
-  transform: translate(10%, -10%);
-  transition: .4s;
-  opacity: 0;
-}
-
-.header-navigation-item__drink:hover {
-  transform: translateY(-20px);
-}
-
-.header-navigation-item__bowl:hover {
-  transform: translateY(-20px);
-}
-
-@keyframes updown {
-  50% { transform: translateY(0px);}
-  100% {transform: translateY(3px);}
-}
-
-/* @keyframes rotate {
-  0% {transform: rotate(0deg);}
-  50% {transform: rotate(360deg);}
-  100% {transform: rotate(0deg);}
-} */
-
 /* fries styling */
-.friet-1{fill:#fbd013}
-.friet-2{fill:#e8b401}
-.friet-3{fill:#e60f22}
-.friet-5{fill:#af1019}
+.friet-1 {
+  fill: #fbd013;
+}
+
+.friet-2 {
+  fill: #e8b401;
+}
+
+.friet-3 {
+  fill: #e60f22;
+}
+
+.friet-5 {
+  fill: #af1019;
+}
 
 /* meat styling */
-.vlees{fill:#aa271f}
+.vlees {
+  fill: #aa271f;
+}
 
-.bubble1{fill:#fff;
-  opacity:.35;
-  isolation:isolate}
-.bubble{fill:#e2e2e2}
-.blob{fill:#efefef}
+.bubble1 {
+  fill: #fff;
+  opacity: .35;
+  isolation: isolate;
+}
+
+.bubble {
+  fill: #e2e2e2;
+}
+
+.blob {
+  fill: #efefef;
+}
 
 /*salad style*/
-.salad-1{fill:#14642e}
-.salad-2{fill:#3e8132}
-.salad-3{fill:#67b55d}
-.salad-4{fill:#90c159}
-.salad-5{fill:#4a8947}
-.salad-6{fill:#d6d6d6}
-.salad-7{fill:#619954}
-.salad-8{fill:#99a721}
-.salad-11{fill:#547129}
-.salad-12{fill:#6d8d2c}
-.salad-14{fill:#f2cc24}
-.salad-15{fill:none}
-.salad-16{fill:#8e9f4d}
-.salad-17{fill:#a1b944}
-.salad-18{fill:#c22761}
-.salad-19{fill:#dc3669}
+.salad-1 {
+  fill: #14642e;
+}
+
+.salad-2 {
+  fill: #3e8132;
+}
+
+.salad-3 {
+  fill: #67b55d;
+}
+
+.salad-4 {
+  fill: #90c159;
+}
+
+.salad-5 {
+  fill: #4a8947;
+}
+
+.salad-6 {
+  fill: #d6d6d6;
+}
+
+.salad-7 {
+  fill: #619954;
+}
+
+.salad-8 {
+  fill: #99a721;
+}
+
+.salad-11 {
+  fill: #547129;
+}
+
+.salad-12 {
+  fill: #6d8d2c;
+}
+
+.salad-14 {
+  fill: #f2cc24;
+}
+
+.salad-15 {
+  fill: none;
+}
+
+.salad-16 {
+  fill: #8e9f4d;
+}
+
+.salad-17 {
+  fill: #a1b944;
+}
+
+.salad-18 {
+  fill: #c22761;
+}
+
+.salad-19 {
+  fill: #dc3669;
+}
+
+.salad-cloud-1 {
+  fill: #353535;
+}
+
+.salad-cloud-2 {
+  fill: #99c440;
+}
+
+.salad-cloud-3 {
+  fill: #5ca33e;
+}
+
+.salad-cloud-8 {
+  fill: #282827;
+}
+
+.salad-cloud-28 {
+  fill: none;
+}
+
+.salad-cloud-13 {
+  fill: #6d8d2c;
+}
+
+.salad-cloud-15 {
+  fill: #14642e;
+}
+
+.salad-cloud-16 {
+  fill: #3e8132;
+}
+
+.salad-cloud-17 {
+  fill: #67b55d;
+}
+
+.salad-cloud-18 {
+  fill: #90c159;
+}
+
+.salad-cloud-19 {
+  fill: #4a8947;
+}
+
+.salad-cloud-20 {
+  fill: #f8fbf7;
+}
+
+.salad-cloud-21 {
+  fill: #619954;
+}
+
+.salad-cloud-22 {
+  fill: #99a721;
+}
+
+.salad-cloud-25 {
+  fill: #547129;
+}
+
+.salad-cloud-27 {
+  fill: #f2cc24;
+}
+
+.salad-cloud-29 {
+  fill: #8e9f4d;
+}
+
+.salad-cloud-30 {
+  fill: #a1b944;
+}
+
+.salad-cloud-31 {
+  fill: #c22761;
+}
+
+.salad-cloud-32 {
+  fill: #dc3669;
+}
+
+.curtain-1 {
+  fill: #b7842a;
+}
+
+.curtain-2 {
+  fill: #afafaf;
+}
+
+.curtain-3 {
+  fill: #991734;
+}
+
+.curtain-4 {
+  fill: #871633;
+}
+
+/*# sourceMappingURL=style.css.map */

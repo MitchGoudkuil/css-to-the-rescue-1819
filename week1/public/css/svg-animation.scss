@@ -1,0 +1,75 @@
+#vuur {
+  transition: .4s;
+}
+
+#vuur-andcup {
+  transition: .4s;
+}
+
+#blob:hover ~ #vuur-andcup {
+  transform: translate(10%, -300%);
+  -webkit-perspective: 100px; /* Safari 4-8  */
+  perspective: 100px;
+  transition-delay: .4s;
+}
+
+#blob:hover ~ #vuur-andcup > #vuur {
+  transform: translateY(7em);
+}
+
+// .curtain-container {
+//   width: 100%;
+//   position: absolute;
+//   top: 1em;
+//   left: -.5em;
+// }
+//
+// .curtain {
+//   width: 50%;
+//   margin-top: -1.1em;
+// }
+//
+// .curtain-left {
+//   width: 100%;
+//   display: block;
+//   animation: curtainOpenClose 9s infinite alternate;
+// }
+//
+// .curtain-right {
+//   width: 100%;
+//   display: block;
+//   animation: curtainOpenClose .4s infinite alternate;
+// }
+
+
+
+
+
+#eggplant {
+  transition: .4s;
+}
+
+#peaches {
+  transition: .6s;
+}
+
+#bliob:hover ~ #eggplant {
+  transform: translateY(-50%);
+}
+
+#bliob:hover ~ #peaches {
+  transform: translateY(-60%);
+}
+
+.fry, .straw, .bite, .veg, .leaf {
+  transition: .4s;
+}
+
+.nowidth {
+  width: 0%;
+}
+
+#bite {
+  opacity: 1;
+  transition: .6s;
+}

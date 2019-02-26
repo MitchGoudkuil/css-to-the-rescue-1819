@@ -1,7 +1,7 @@
-let fries = document.querySelector('.header-navigation-item__fries');
-let drink = document.querySelector('.header-navigation-item__drink');
-let steak = document.querySelector('.header-navigation-item__steak');
-let salad = document.querySelector('.header-navigation-item__bowl');
+let fries = document.querySelector('.header-navigation--item__fries');
+let drink = document.querySelector('.header-navigation--item__drink');
+let steak = document.querySelector('.header-navigation--item__steak');
+let salad = document.querySelector('.header-navigation--item__bowl');
 
 
 let fryBackground = document.querySelector('.background-containers__fry');

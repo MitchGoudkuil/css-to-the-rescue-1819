@@ -1,0 +1,38 @@
+
+/* all keyframe animations */
+
+@keyframes updown {
+  50% { transform: translateY(0px);}
+  100% {transform: translateY(3px);}
+}
+
+@keyframes falling {
+  0% { transform: translate3d(0,-100%,0)}
+100% { transform: translate3d(15%,100%,0)}
+}
+
+@keyframes wind {
+  0% { transform: translate3d(-100%,0,0)}
+100% { transform: translate3d(100%,0%,0)}
+}
+
+@keyframes backUp {
+  0% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes breathe {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.01);
+  }
+}
+
+@keyframes curtainOpenClose {
+  100% {
+    width: 0;
+  }
+}
