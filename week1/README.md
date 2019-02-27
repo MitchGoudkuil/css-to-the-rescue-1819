@@ -8,6 +8,8 @@
 
 ## Tuesday
 
+[prototype](https://github.com/MitchGoudkuil/css-to-the-rescue-1819/tree/master/week1)
+
 Hi!
 
 ### Inspirational introduction: “Let’s Break The Web!”
