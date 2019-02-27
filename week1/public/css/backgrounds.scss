@@ -41,6 +41,7 @@
   &__drink {
     background-image: url(../../img/drink-back.svg);
     animation: backUp .2s infinite alternate;
+    overflow: hidden;
   }
 
   &__salad {
@@ -82,6 +83,15 @@
       animation: falling 2.5s linear infinite;
     }
   }
+}
+
+.rocket-small {
+  width: 150px;
+  position: absolute;
+  top: 10vh;
+  right: -150px;
+  animation: flying 4s linear infinite;
+  animation-delay: 2s;
 }
 
 
