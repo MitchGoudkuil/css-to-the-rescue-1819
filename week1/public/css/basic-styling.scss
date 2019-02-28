@@ -45,3 +45,36 @@ hr {
     transform: scale(1.1);
   }
 }
+
+strong {
+  font-weight: bold;
+  border: 1px solid #fff;
+  padding: .1em .3em;
+  position: relative;
+    transition: .4s;
+
+  &:hover {
+    color: #000;
+
+    &:after {
+      width: 100%;
+    }
+
+  }
+
+  &:active {
+    transform: translateY(30px);
+  }
+
+  &:after {
+    content: '';
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background-image: url(../../img/background-salad.svg);
+    transition: .4s;
+  }
+}

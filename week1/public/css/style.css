@@ -57,6 +57,10 @@ h1 {
   font-weight: 300;
 }
 
+h3 {
+  margin-bottom: .5em;
+}
+
 /* Middle part with logo */
 .middle-container {
   z-index: 10;
@@ -66,14 +70,15 @@ h1 {
   align-items: center;
   justify-content: center;
 }
+.middle-container__block {
+  z-index: 999;
+}
 .middle-container__block-logo {
   position: relative;
-  z-index: 10;
-  max-width: 400px;
-  width: 100%;
-  -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-  transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+  width: 40vw;
   animation: updown 2.5s infinite alternate;
+  -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 /* backgrounds */
@@ -96,7 +101,9 @@ h1 {
 }
 .background-containers__salad {
   background-image: url(../../img/background-salad.svg);
-  animation: breathe 2s infinite alternate;
+  animation: breathe 1.6s infinite alternate;
+  -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 .background-containers__steak {
   background-image: url(../../img/steak-back.svg);
@@ -216,13 +223,41 @@ hr:hover {
   transform: scale(1.1);
 }
 
+strong {
+  font-weight: bold;
+  border: 1px solid #fff;
+  padding: .1em .3em;
+  position: relative;
+  transition: .4s;
+}
+strong:hover {
+  color: #000;
+}
+strong:hover:after {
+  width: 100%;
+}
+strong:active {
+  transform: translateY(30px);
+}
+strong:after {
+  content: '';
+  z-index: -1;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0%;
+  background-image: url(../../img/background-salad.svg);
+  transition: .4s;
+}
+
 /* all keyframe animations */
 @keyframes updown {
   50% {
     transform: translateY(0px);
   }
   100% {
-    transform: translateY(3px);
+    transform: translateY(20px);
   }
 }
 @keyframes falling {
@@ -246,12 +281,39 @@ hr:hover {
     transform: translateY(3px);
   }
 }
+@keyframes shake {
+  10%, 90% {
+    transform: translate3d(-1px, 0, 0);
+  }
+  20%, 80% {
+    transform: translate3d(2px, 0, 0);
+  }
+  30%, 50%, 70% {
+    transform: translate3d(-4px, 0, 0);
+  }
+  40%, 60% {
+    transform: translate3d(4px, 0, 0);
+  }
+}
+@keyframes swing {
+  0% {
+    transform: rotate(3deg) translateY(40px);
+  }
+  100% {
+    transform: rotate(-3deg) translateY(-20px);
+  }
+}
+@keyframes swift {
+  100% {
+    transform: translateX(300%);
+  }
+}
 @keyframes breathe {
   0% {
     transform: scale(1);
   }
   100% {
-    transform: scale(1.01);
+    transform: scale(1.08);
   }
 }
 @keyframes flying {
@@ -278,12 +340,17 @@ hr:hover {
   left: 50%;
   margin-left: -25vw;
   background-color: var(--chalk);
+  max-height: 500px;
   transition: .2s;
-  padding: 2em 4em 4em;
+  padding: 2em 4em;
+  color: #fff;
+}
+.article-wood:active {
+  animation: shake .1s infinite;
+}
+.article-wood__inner {
   display: flex;
   flex-wrap: wrap;
-  color: #fff;
-  animation: updown 2s linear 2s infinite alternate;
 }
 .article-wood__half {
   flex: 1 0 50%;
@@ -301,11 +368,6 @@ hr:hover {
   bottom: -3em;
   max-width: 200px;
   width: 100%;
-}
-.article-wood:hover {
-  -webkit-perspective: 100px;
-  /* Safari 4-8  */
-  perspective: 100px;
 }
 .article-wood::before {
   position: absolute;
@@ -332,18 +394,26 @@ hr:hover {
 }
 
 .recipe {
-  margin-bottom: .5em;
+  margin: 1em 0.5em;
+  position: relative;
 }
 
 .recipe-price {
   margin-top: 5px;
-  display: block;
   border-radius: 8px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.fry-recipe-price {
+  margin-top: .3em;
 }
 
 .article-wood-fries {
   text-align: left;
   max-width: 50vw;
+  max-height: 500px;
   width: 100%;
   position: absolute;
   bottom: -10vh;
@@ -352,12 +422,17 @@ hr:hover {
   transform-origin: center;
   background-color: var(--chalk);
   transition: .2s;
-  padding: 4em;
-  display: flex;
+  padding: 2em;
   color: #fff;
 }
+.article-wood-fries__inner {
+  max-height: 450px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+}
 .article-wood-fries__half {
-  width: 50%;
+  flex: 1 0 50%;
   padding: 1em;
   font-family: 'Handlee', cursive;
 }
@@ -426,6 +501,9 @@ hr:hover {
   opacity: 0;
   transition: .4s;
 }
+.fry-container__inner {
+  height: 100%;
+}
 .fry-container__splash {
   position: relative;
 }
@@ -448,6 +526,7 @@ hr:hover {
   margin-top: .5em;
 }
 .fry-list__fries-one {
+  margin-top: .5em;
   -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -455,6 +534,7 @@ hr:hover {
   transform: translateY(3em) rotate(3deg);
 }
 .fry-list__fries-two {
+  margin-top: .5em;
   -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
@@ -462,18 +542,9 @@ hr:hover {
   transform: translateY(3em) rotate(3deg);
 }
 .fry-list__item {
+  margin: 2em 2em 1em;
   transition: .3s;
-  margin-bottom: 2em;
-}
-.fry-list::before {
-  position: absolute;
-  top: -1em;
-  left: 0;
-  height: 2em;
-  width: 100%;
-  background-image: url(../../img/paper-top.svg);
-  background-size: 100%;
-  content: "";
+  position: relative;
 }
 
 #rope-pull:checked ~ .curtain-container .curtain-left {
@@ -548,8 +619,21 @@ hr:hover {
   padding: .1em;
   margin-bottom: .5em;
 }
+.drink-list .frisdrank .drink-list__item:before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  top: 0;
+  left: -10px;
+  background-image: url("../../img/small-beer.svg");
+  background-repeat: no-repeat;
+}
 .drink-list__item {
   transition: .3s;
+  position: relative;
+  margin-bottom: .4em;
+  margin-left: .4em;
 }
 .drink-list::before {
   position: absolute;
@@ -577,8 +661,8 @@ hr:hover {
 }
 .drink-container-item__drink {
   position: absolute;
-  right: 2em;
-  bottom: -7em;
+  right: -4em;
+  bottom: -3em;
   max-width: 130px;
   width: 100%;
 }
@@ -588,6 +672,7 @@ hr:hover {
   opacity: 1;
   transition-delay: .4s;
   z-index: 100;
+  animation: swing .2s infinite linear alternate;
 }
 
 .steak-container {
@@ -625,6 +710,9 @@ hr:hover {
 .steak-list__fresh:hover {
   transform: translateY(3em) rotate(-3deg);
 }
+.steak-list__fresh:active {
+  transform: translateX(-200em);
+}
 .steak-list__fresh:focus {
   transform: translateY(3em);
 }
@@ -655,6 +743,8 @@ hr:hover {
 }
 .steak-list__item {
   transition: .3s;
+  margin-bottom: .5em;
+  position: relative;
 }
 .steak-list::before {
   position: absolute;
@@ -667,10 +757,19 @@ hr:hover {
   content: "";
 }
 
+.chalk {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: swift .3s linear 2s infinite alternate;
+}
+
 /*--------start salad container-------*/
 #saladitem:checked ~ .salad-container {
   opacity: 1;
   transition-delay: .4s;
+  z-index: 100;
 }
 
 .salad-container {
@@ -719,14 +818,16 @@ hr:hover {
   position: absolute;
   bottom: 0;
   width: 100%;
-  z-index: 1000;
-  text-align: center;
+  z-index: 100000;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
 }
 
 .header-navigation {
   display: block;
   margin: 0 auto;
-  width: 100%;
+  max-width: 100vw;
   transition-timing-function: ease-in-out;
   transition-timing-function: cubic-bezier(0.42, 0, 0.58, 1);
 }
@@ -1042,6 +1143,22 @@ hr:hover {
 
 .curtain-4 {
   fill: #871633;
+}
+
+.cls-50 {
+  fill: #fff;
+}
+
+.cls-51 {
+  fill: #333;
+}
+
+.cls-52 {
+  fill: #222;
+}
+
+.cls-53 {
+  fill: #fff;
 }
 
 /*# sourceMappingURL=style.css.map */

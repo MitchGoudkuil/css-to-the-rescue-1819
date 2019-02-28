@@ -20,6 +20,10 @@
   opacity: 0;
   transition: .4s;
 
+  &__inner {
+    height: 100%;
+  }
+
   &__splash {
     position: relative;
   }
@@ -45,6 +49,7 @@
   }
 
   &__fries-one {
+      margin-top: .5em;
     -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition:         all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -54,6 +59,7 @@
   }
 
   &__fries-two {
+    margin-top: .5em;
     -webkit-transition: all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   transition:         all 300ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
@@ -63,19 +69,9 @@
   }
 
   &__item {
+    margin: 2em 2em 1em;
     transition: .3s;
-    margin-bottom: 2em;
-  }
-
-  &::before {
-    position: absolute;
-    top: -1em;
-    left: 0;
-    height: 2em;
-    width: 100%;
-    background-image: url(../../img/paper-top.svg);
-    background-size: 100%;
-    content: ""
+    position: relative;
   }
 }
 
@@ -164,10 +160,28 @@
       }
 
     }
-  }
 
+
+  }
+  .frisdrank {
+    .drink-list__item {
+    &:before {
+      content:'';
+      position: absolute;
+      height: 20px;
+      width: 20px;
+      top: 0;
+      left: -10px;
+      background-image:  url('../../img/small-beer.svg');
+      background-repeat: no-repeat;
+    }
+  }
+  }
   &__item {
     transition: .3s;
+    position: relative;
+    margin-bottom: .4em;
+    margin-left: .4em;
   }
 
   &::before {
@@ -178,7 +192,7 @@
     width: 100%;
     background-image: url(../../img/paper-top.svg);
     background-size: 100%;
-    content: ""
+    content: "";
   }
 }
 
@@ -198,8 +212,8 @@
 
   &-item__drink {
     position: absolute;
-    right: 2em;
-    bottom: -7em;
+    right: -4em;
+    bottom: -3em;
     max-width: 130px;
     width: 100%;
   }
@@ -212,6 +226,7 @@
   opacity: 1;
   transition-delay: .4s;
   z-index: 100;
+  animation: swing .2s infinite linear alternate;
 }
 
 .steak-container {
@@ -251,6 +266,10 @@
           transform: translateY(3em) rotate(-3deg);
     }
 
+    &:active {
+         transform: translateX(-200em);
+    }
+
     &:focus {
       transform: translateY(3em);
       li{
@@ -288,6 +307,8 @@
 
   &__item {
     transition: .3s;
+    margin-bottom: .5em;
+    position: relative;
   }
 
   &::before {
@@ -302,6 +323,13 @@
   }
 }
 
+.chalk {
+  width: 100px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: swift .3s linear 2s infinite alternate;
+}
 
 
 /*--------start salad container-------*/
@@ -310,6 +338,7 @@
 #saladitem:checked ~ .salad-container {
   opacity: 1;
   transition-delay: .4s;
+  z-index: 100;
 }
 
 .salad-container {

@@ -9,18 +9,19 @@
   justify-content: center;
 
   &__block {
+    z-index: 999;
 
     &-logo {
       position: relative;
-      z-index: 10;
-      max-width: 400px;
-      width: 100%;
-      -webkit-transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
-      transition: all 600ms cubic-bezier(0.645, 0.045, 0.355, 1);
+      width: 40vw;
       animation: updown 2.5s infinite alternate;
+      -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      transition:         all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
     }
   }
 }
+
+
 
 /* backgrounds */
 
@@ -46,7 +47,9 @@
 
   &__salad {
     background-image: url(../../img/background-salad.svg);
-    animation: breathe 2s infinite alternate;
+    animation: breathe 1.6s infinite alternate;
+    -webkit-transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transition: all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
 
   &__steak {

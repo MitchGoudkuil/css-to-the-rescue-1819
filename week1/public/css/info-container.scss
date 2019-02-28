@@ -7,12 +7,19 @@
   left: 50%;
   margin-left: -25vw;
   background-color: var(--chalk);
+  max-height: 500px;
   transition: .2s;
-  padding: 2em 4em 4em;
-  display: flex;
-  flex-wrap: wrap;
+  padding: 2em 4em;
   color: #fff;
-  animation: updown 2s linear 2s infinite alternate;
+
+  &:active {
+      animation: shake .1s infinite;
+  }
+
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+  }
 
   &__half {
     flex: 1 0 50%;
@@ -24,7 +31,6 @@
       font-size: 2em;
       font-weight: 300;
     }
-
   }
 
   &__salad {
@@ -33,12 +39,6 @@
     bottom: -3em;
     max-width: 200px;
     width: 100%;
-  }
-
-  &:hover {
-    -webkit-perspective: 100px; /* Safari 4-8  */
-    perspective: 100px;
-
   }
 
   &::before {
@@ -69,18 +69,27 @@
 }
 
 .recipe {
-  margin-bottom: .5em;
+  margin: 1em 0.5em;
+  position: relative;
+
 }
 
 .recipe-price {
   margin-top: 5px;
-  display: block;
   border-radius: 8px;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.fry-recipe-price {
+  margin-top: .3em;
 }
 
 .article-wood-fries {
   text-align: left;
   max-width: 50vw;
+  max-height: 500px;
   width: 100%;
   position: absolute;
   bottom: -10vh;
@@ -89,12 +98,18 @@
   transform-origin: center;
   background-color: var(--chalk);
   transition: .2s;
-  padding: 4em;
-  display: flex;
+  padding: 2em;
   color: #fff;
 
+  &__inner {
+    max-height: 450px;
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+  }
+
   &__half {
-    width: 50%;
+    flex: 1 0 50%;
     padding: 1em;
     font-family: 'Handlee', cursive;
 
