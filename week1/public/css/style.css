@@ -53,11 +53,16 @@ p {
 }
 
 h1 {
-  font-weight: 2em;
+  font-size: 1.7em;
   font-weight: 300;
 }
 
+h2 {
+  font-size: 1.6em;
+}
+
 h3 {
+  font-size: 1.5em;
   margin-bottom: .5em;
 }
 
